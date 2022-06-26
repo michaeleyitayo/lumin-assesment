@@ -1,6 +1,8 @@
 import React from "react";
+import { useCart } from "../context/cart-context";
 
 const Product: React.FC = () => {
+  const { setShowCart } = useCart();
   return (
     <div className="flex flex-col items-center">
       <img
@@ -10,7 +12,10 @@ const Product: React.FC = () => {
       />
       <h4 className="text-[13px] font-normal">Age management Colletion</h4>
       <p className="text-[13px] font-normal">From $48.00</p>
-      <button className="bg-[#4b5548] text-[16px] text-white w-5/6 py-[10px] mt-[20px]">
+      <button
+        className="bg-[#4b5548] text-[16px] text-white w-5/6 py-[10px] mt-[20px]"
+        onClick={() => setShowCart(true)}
+      >
         Add to cart
       </button>
     </div>
