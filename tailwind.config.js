@@ -18,7 +18,6 @@ module.exports = {
             colors: {
                 primary: "#4B5548",
                 grey: "#E5E5E5",
-                black: "#060213",
             },
             fontFamily: {
                 serif: ["Playfair Display", "serif"],
