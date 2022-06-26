@@ -1,6 +1,7 @@
 import React from "react";
 import { useCart } from "../context/cart-context";
 import caretRight from "../assets/icons/caretRight.svg";
+import CartItem from "../components/cart-item";
 
 const Cart = () => {
   const { showCart, setShowCart, items } = useCart();
@@ -30,6 +31,12 @@ const Cart = () => {
           >
             <option value="NGN">NGN</option>
           </select>
+        </div>
+
+        <div className="flex-1 w-full mt-[20px] flex flex-col gap-5">
+          <CartItem />
+          <CartItem />
+          <CartItem />
         </div>
 
         {items.length === 0 && (
