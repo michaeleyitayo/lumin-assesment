@@ -3,7 +3,7 @@ import { useCart } from "../context/cart-context";
 import { IProduct } from "../context/products-context";
 
 const Product: React.FC<IProduct> = (product) => {
-  const { setShowCart } = useCart();
+  const { addItem } = useCart();
   return (
     <div className="flex flex-col items-center">
       <div className="h-[60px]">
@@ -13,7 +13,7 @@ const Product: React.FC<IProduct> = (product) => {
       <p className="text-[13px] font-normal">From ${product.price}</p>
       <button
         className="bg-[#4b5548] text-[16px] text-white w-5/6 py-[10px] mt-[20px]"
-        onClick={() => setShowCart(true)}
+        onClick={() => addItem(product)}
       >
         Add to cart
       </button>

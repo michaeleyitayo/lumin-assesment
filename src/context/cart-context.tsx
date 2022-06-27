@@ -8,7 +8,7 @@ type ContextValueType = {
   removeItem: (product: IProduct) => void;
   [key: string]: any;
 };
-interface ICartItem {
+export interface ICartItem {
   id: number;
   details: IProduct;
   quantity: number;
@@ -29,6 +29,7 @@ export const CartProvider: React.FC = ({ children }) => {
   const [items, setItems] = useState<ICartItem[]>([]);
 
   const addItem = (product: IProduct) => {
+    setShowCart(true);
     let newItems = [...items];
     const thisItem = items.find((item) => item.id === product.id);
     if (thisItem) {

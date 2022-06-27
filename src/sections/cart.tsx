@@ -5,7 +5,6 @@ import CartItem from "../components/cart-item";
 
 const Cart = () => {
   const { showCart, setShowCart, items } = useCart();
-  console.log(showCart);
   return (
     <div
       className={`fixed top-0 right-0 transform w-screen h-screen transition-all duration-500 flex  justify-end ${
@@ -33,13 +32,13 @@ const Cart = () => {
           </select>
         </div>
 
-        <div className="flex-1 w-full mt-[20px] flex flex-col gap-5">
-          <CartItem />
-          <CartItem />
-          <CartItem />
-        </div>
-
-        {items.length === 0 && (
+        {items.length ? (
+          <div className="flex-1 w-full mt-[20px] flex flex-col gap-5">
+            {items.map((item) => (
+              <CartItem key={item.id} {...item} />
+            ))}
+          </div>
+        ) : (
           <p className="mt-[70px] text-[16px]">
             There are no items in your cart <br />
             <a href="#shop" className="underline">
