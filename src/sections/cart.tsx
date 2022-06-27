@@ -33,11 +33,19 @@ const Cart = () => {
         </div>
 
         {items.length ? (
-          <div className="flex-1 w-full mt-[20px] flex flex-col gap-5">
-            {items.map((item) => (
-              <CartItem key={item.id} {...item} />
-            ))}
-          </div>
+          <>
+            <div className="flex-1 w-full mt-[20px] flex flex-col gap-5">
+              {items.map((item) => (
+                <CartItem key={item.id} {...item} />
+              ))}
+            </div>
+            <div className="mt-auto w-full flex justify-between font-bold text-[14px]">
+              <p>SUBTOTAL</p>
+              <p>
+                {items.reduce((a, b) => +a + +b.details.price * b.quantity, 0)}
+              </p>
+            </div>
+          </>
         ) : (
           <p className="mt-[70px] text-[16px]">
             There are no items in your cart <br />
