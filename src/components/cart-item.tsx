@@ -1,9 +1,11 @@
 import React from "react";
 import x from "../assets/icons/x.svg";
 import { ICartItem, useCart } from "../context/cart-context";
+import { useProducts } from "../context/products-context";
 
 const CartItem: React.FC<ICartItem> = (item) => {
   const { addItem, removeItem, removeItemAll } = useCart();
+  const { products, currency } = useProducts();
   return (
     <div className="bg-white p-[10px] flex items-start text-[#1e2d2b]">
       <div className="flex-1 text-left">
@@ -28,7 +30,10 @@ const CartItem: React.FC<ICartItem> = (item) => {
               +
             </button>
           </div>
-          <p className="text-[14px]">USD {item.details.price}</p>
+          <p className="text-[14px]">
+            {currency}{" "}
+            {products?.find((product) => product.id === item.id)?.price}
+          </p>
         </div>
       </div>
       <img src={item.details.image_url} className="h-[60px] w-[60px]" alt="" />

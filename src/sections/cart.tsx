@@ -2,9 +2,11 @@ import React from "react";
 import { useCart } from "../context/cart-context";
 import caretRight from "../assets/icons/caretRight.svg";
 import CartItem from "../components/cart-item";
+import { useProducts } from "../context/products-context";
 
 const Cart = () => {
   const { showCart, setShowCart, items } = useCart();
+  const { products, displayCurrency, currencies, setCurrency } = useProducts();
   return (
     <div
       className={`fixed top-0 right-0 transform w-screen h-screen transition-all duration-500 flex  justify-end ${
@@ -24,11 +26,17 @@ const Cart = () => {
             <img src={caretRight} className="w-9/12" alt="" />
           </button>
           <select
+            value={displayCurrency}
+            onChange={(e) => setCurrency(e.target.value)}
             name=""
             id=""
             className="text-[14px] bg-transparent outline-none"
           >
-            <option value="USD">USD</option>
+            {currencies?.map((c: string) => (
+              <option key={c} value={c}>
+                {c}
+              </option>
+            ))}
           </select>
         </div>
 
@@ -42,7 +50,15 @@ const Cart = () => {
             <div className="mt-auto w-full flex justify-between font-bold text-[14px]">
               <p>SUBTOTAL</p>
               <p>
-                {items.reduce((a, b) => +a + +b.details.price * b.quantity, 0)}
+                {items.reduce(
+                  (a, b) =>
+                    +a +
+                    Number(
+                      products?.find((product) => product.id === b.id)?.price
+                    ) *
+                      b.quantity,
+                  0
+                )}
               </p>
             </div>
           </>
