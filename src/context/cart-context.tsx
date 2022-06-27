@@ -11,7 +11,7 @@ interface CartItem {
 }
 
 export const CartProvider: React.FC = ({ children }) => {
-  const [showCart, setShowCart] = useState(true);
+  const [showCart, setShowCart] = useState(false);
   const [items, setItems] = useState<CartItem[]>([]);
   return (
     <CartContext.Provider
