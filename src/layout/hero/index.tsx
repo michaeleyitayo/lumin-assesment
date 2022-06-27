@@ -31,16 +31,16 @@ const Hero: React.FC = () => {
           </nav>
         </div>
         <div>
-          <h1 className=" font-serif text-[28px] font-extralight leading-[1em]">
+          <h1 className=" font-serif text-[28px] font-extralight leading-[1em] 992:text-[48px]">
             New to Skincare?
           </h1>
-          <p className="mt-[8px] text-[14px] fon">
+          <p className="mt-[8px] text-[14px] 992:text-[20px]">
             Unlock your personalized skincare routine today.
           </p>
           <a
             href="#shop"
             type="button"
-            className="mt-[32px] inline-flex justify-center items-center bg-white uppercase text-black text-[16px] w-[200px] h-[42px] font-bold"
+            className="mt-[32px] inline-flex justify-center items-center bg-white uppercase text-black text-[16px] w-[200px] h-[42px]"
           >
             start shopping
           </a>

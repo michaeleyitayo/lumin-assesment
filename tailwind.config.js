@@ -21,7 +21,7 @@ module.exports = {
             },
             fontFamily: {
                 serif: ["Playfair Display", "serif"],
-                sans: ["FF Bau Regular", "sans-serif"],
+                sans: ["Libre Franklin", "sans-serif"],
             },
         },
     },
