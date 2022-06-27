@@ -28,13 +28,13 @@ const Cart = () => {
             id=""
             className="text-[14px] bg-transparent outline-none"
           >
-            <option value="NGN">NGN</option>
+            <option value="USD">USD</option>
           </select>
         </div>
 
         {items.length ? (
           <>
-            <div className="flex-1 w-full mt-[20px] flex flex-col gap-5">
+            <div className="flex-1 w-full my-[20px] flex flex-col gap-5 overflow-y-auto">
               {items.map((item) => (
                 <CartItem key={item.id} {...item} />
               ))}

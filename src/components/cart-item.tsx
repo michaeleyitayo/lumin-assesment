@@ -31,7 +31,7 @@ const CartItem: React.FC<ICartItem> = (item) => {
           <p className="text-[14px]">USD {item.details.price}</p>
         </div>
       </div>
-      <img src={item.details.image_url} className="w-[60px]" alt="" />
+      <img src={item.details.image_url} className="h-[60px] w-[60px]" alt="" />
       <img
         src={x}
         onClick={() => removeItemAll(item.details)}
