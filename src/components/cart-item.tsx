@@ -3,7 +3,7 @@ import x from "../assets/icons/x.svg";
 import { ICartItem, useCart } from "../context/cart-context";
 
 const CartItem: React.FC<ICartItem> = (item) => {
-  const { addItem, removeItem } = useCart();
+  const { addItem, removeItem, removeItemAll } = useCart();
   return (
     <div className="bg-white p-[10px] flex items-start text-[#1e2d2b]">
       <div className="flex-1 text-left">
@@ -32,7 +32,12 @@ const CartItem: React.FC<ICartItem> = (item) => {
         </div>
       </div>
       <img src={item.details.image_url} className="w-[60px]" alt="" />
-      <img src={x} className="w-[10px]" alt="" />
+      <img
+        src={x}
+        onClick={() => removeItemAll(item.details)}
+        className="w-[10px]"
+        alt=""
+      />
     </div>
   );
 };

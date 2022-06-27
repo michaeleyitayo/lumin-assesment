@@ -6,6 +6,7 @@ type ContextValueType = {
   items: ICartItem[];
   addItem: (product: IProduct) => void;
   removeItem: (product: IProduct) => void;
+  removeItemAll: (product: IProduct) => void;
   [key: string]: any;
 };
 export interface ICartItem {
@@ -20,6 +21,7 @@ export const CartContext = createContext<ContextValueType>({
   items: [],
   addItem: (product: IProduct) => {},
   removeItem: (product: IProduct) => {},
+  removeItemAll: (product: IProduct) => {},
 });
 
 export const useCart = () => useContext(CartContext);
@@ -58,6 +60,10 @@ export const CartProvider: React.FC = ({ children }) => {
       console.log("Item is not in cart");
     }
   };
+
+  const removeItemAll = (product: IProduct) => {
+    setItems(items.filter((item) => item.id !== product.id));
+  };
   return (
     <CartContext.Provider
       value={{
@@ -67,6 +73,7 @@ export const CartProvider: React.FC = ({ children }) => {
         setItems,
         addItem,
         removeItem,
+        removeItemAll,
       }}
     >
       {children}

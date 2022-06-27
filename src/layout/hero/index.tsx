@@ -37,12 +37,13 @@ const Hero: React.FC = () => {
           <p className="mt-[8px] text-[14px] fon">
             Unlock your personalized skincare routine today.
           </p>
-          <button
+          <a
+            href="#shop"
             type="button"
-            className="mt-[32px] bg-white uppercase text-black text-[16px] w-[200px] h-[42px] font-bold"
+            className="mt-[32px] inline-flex justify-center items-center bg-white uppercase text-black text-[16px] w-[200px] h-[42px] font-bold"
           >
             start shopping
-          </button>
+          </a>
         </div>
       </div>
       <div className="w-full h-[67.09px] py-[12px] items-center hidden 992:flex">
